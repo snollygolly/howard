@@ -17,7 +17,7 @@ routes.get("/", function* get() {
 	if (this.isAuthenticated()) {
 		user = this.session.passport.user;
 	}
-	yield this.redirect("/app/index.html");
+	this.redirect("/app/index.html");
 });
 
 app.use(routes.middleware());
