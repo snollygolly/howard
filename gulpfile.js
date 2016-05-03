@@ -1,36 +1,36 @@
 "use strict";
 
 // Load plugins
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var babel = require('gulp-babel');
+const gulp = require("gulp");
+const concat = require("gulp-concat");
+const babel = require("gulp-babel");
 
-var paths = {
-  scripts: {
+const paths = {
+	scripts: {
 		name: "main.js",
-		src: 'app/src/**/*.js',
-		dest: 'app/dist'
+		src: "app/src/**/*.js",
+		dest: "app/dist"
 	}
 };
 
-gulp.task('concat', function() {
+gulp.task("concat", () => {
 	return gulp.src(paths.scripts.src)
 		.pipe(concat(paths.scripts.name))
 		.pipe(gulp.dest(paths.scripts.dest));
 });
 
-gulp.task('babel', ["concat"], function() {
-	return gulp.src(paths.scripts.dest + "/" + paths.scripts.name)
+gulp.task("babel", ["concat"], () => {
+	return gulp.src(`${paths.scripts.dest}/${paths.scripts.name}`)
 		.pipe(babel({
-			presets: ['es2015']
+			presets: ["es2015"]
 		}))
 		.pipe(gulp.dest(paths.scripts.dest));
 });
 
-gulp.task('watch', function() {
-  gulp.watch(paths.scripts.src, ["concat", "babel"]);
+gulp.task("watch", () => {
+	gulp.watch(paths.scripts.src, ["concat", "babel"]);
 });
 
 
 // Default task
-gulp.task('default', ["watch", "concat", "babel"]);
+gulp.task("default", ["watch", "concat", "babel"]);

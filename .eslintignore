@@ -3,5 +3,4 @@ node_modules/*
 coverage/*
 shipitfile.js
 tmp/*
-gulpfile.js
 app/dist/*
