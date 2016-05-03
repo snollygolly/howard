@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="en" ng-app="howardApp">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@
 		<script src="/app/dist/main.js"></script>
 	</head>
 
-	<body ng-controller="PhoneListCtrl">
+	<body ng-controller="channelController">
 
 		<ng-include src="'/app/views/header.html'"></ng-include>
 
@@ -43,9 +43,8 @@
 						<p class="lead">HOWARD is the best choice for starting a Koa project!	You know, as long as you don't mind me making some awesome choices for you.</p>
 
 						<ul>
-							<li ng-repeat="phone in phones">
-								<span>{{phone.name}}</span>
-								<p>{{phone.snippet}}</p>
+							<li ng-repeat="channel in channels">
+								<span>{{channel.name}}</span>
 							</li>
 						</ul>
 
