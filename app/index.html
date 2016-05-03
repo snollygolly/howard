@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="phonecatApp">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,9 +26,10 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+		<script src="/app/app.js"></script>
 	</head>
 
-	<body>
+	<body ng-controller="PhoneListCtrl">
 
 		<!--navbar-->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -63,7 +64,12 @@
 						<h1>HOWARD</h1>
 						<p class="lead">HOWARD is the best choice for starting a Koa project!	You know, as long as you don't mind me making some awesome choices for you.</p>
 
-						<p>Nothing here {{'yet' + '!'}}</p>
+						<ul>
+							<li ng-repeat="phone in phones">
+								<span>{{phone.name}}</span>
+								<p>{{phone.snippet}}</p>
+							</li>
+						</ul>
 
 					</div>
 
