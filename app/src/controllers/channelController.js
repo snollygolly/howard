@@ -9,5 +9,6 @@ app.controller("channelController", ($scope, $http) => {
 		$scope.channels = data;
 	}, (err) => {
 		console.error("OH NO, SOMETHING WENT WRONG WITH THE API!");
+		$scope.message = "OH NO, SOMETHING WENT WRONG WITH THE API!";
 	});
 });
