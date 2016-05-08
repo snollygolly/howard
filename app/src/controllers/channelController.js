@@ -4,9 +4,10 @@ app.controller("channelController", ($scope, $http) => {
 	$http({
 		method: "GET",
 		url: "/api/v1/channels"
-	}).then((data) => {
+	}).then((response) => {
 		console.log("WE GOT THE DATA FROM THE API!");
-		$scope.channels = data;
+		console.log(response);
+		$scope.channels = response.data.channels;
 		$scope.message = "WE GOT A RESPONSE FROM THE API";
 	}, (err) => {
 		console.error("OH NO, SOMETHING WENT WRONG WITH THE API!");
