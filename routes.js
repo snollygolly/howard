@@ -7,8 +7,11 @@ const passport = require("./index.js").passport;
 const Router = require("koa-router");
 
 const routes = new Router();
+const api = new Router({
+	prefix: "/api/v1"
+});
 
-const main = require("./controllers/main.js");
+const channels = require("./controllers/channels.js");
 
 // routes
 let user = null;
@@ -21,3 +24,8 @@ routes.get("/", function* get() {
 });
 
 app.use(routes.middleware());
+
+// api routes go here
+api.get("/channels", channels.getEnabledChannels);
+
+app.use(api.middleware());
